@@ -2,17 +2,21 @@
 
 # Result: Initialize all private static final loggers with appropriate Logger instance.
 
-# Build Package
+## Build Package
 mvn clean package
 
-# Run.
+## Run.
 
+# Expect a null pointer exception. Log is not initialized.
+java -jar target\azm-agent-1.0-SNAPSHOT.jar
+
+# Expect to print out a log massage.
 java -javaagent:target\azm-agent-1.0-SNAPSHOT.jar=com/mstruzek -jar target\azm-agent-1.0-SNAPSHOT.jar
 
 # Filter out only selected package com/mstruzek
 
 
-# --------------------------------
+### Prepare ASM 
 
 # Prepare ASM code base on bytecode. Then insert as replacement in MethodVisitor,FiledVisitor, ...
 # -   cd target/classes/
